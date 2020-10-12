@@ -20,14 +20,15 @@ pipeline {
   stage('Terraform config policy Scan') {    
            
             steps {
+             script {      
+              try {
                     sh 'chmod +x shiftleft' 
                     sh './shiftleft iac-assessment -r 201981 -p ./'
-                    
-              }
-             catch (Exception e) {
+              }    catch (Exception e) {
     
                  echo "Request for Approval"  
                   }
             }
+      }
     }
-}
+  }
