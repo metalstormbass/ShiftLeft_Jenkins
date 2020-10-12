@@ -31,5 +31,13 @@ pipeline {
             }
       }
     }
+  stage('Code approval request') {
+     
+           steps {
+             script {
+               def userInput = input(id: 'confirm', message: 'This code contained a rule violation. Would you still like to deploy it?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Approve Code to Proceed', name: 'approve'] ])
+              }
+            }
+          }
   }
 }
