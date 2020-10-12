@@ -24,6 +24,10 @@ pipeline {
                     sh './shiftleft iac-assessment -r 201981 -p ./'
                     
               }
+             catch (Exception e) {
+    
+                 echo "Request for Approval"  
+                  }
             }
     }
 }
